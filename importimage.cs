@@ -12,7 +12,7 @@ using TMPro;
 // using Unity Standalone File Browser by gkngkc on github
 // github.com/gkngkc/UnityStandaloneFileBrowser
  
-public class importimage : MonoBehaviour, IPointerClickHandler
+public class importimage : MonoBehaviour
 {
  
     public GameObject mainImg;
@@ -40,21 +40,6 @@ public class importimage : MonoBehaviour, IPointerClickHandler
 		InvokeRepeating("Process", 0, 5f);
 		StartCoroutine(FadeTextToZeroAlpha(1f, tutorialText));
 	}
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        int clickCount = eventData.clickCount;
-        if(clickCount == 2)
-		{
-            if(!texthidden)
-            {
-                tutorialText2.SetActive(false);
-                texthidden = true;
-            }
-            OpenImage();
-		}
-
-    }
 
 	public void Process()
     {
