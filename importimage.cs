@@ -17,6 +17,9 @@ public class importimage : MonoBehaviour, IPointerClickHandler
     public GameObject mainImg;
 
     public Text tutorialText;
+    public GameObject tutorialText2;
+
+    public bool texthidden; // really don't need this but this way there are no errors being thrown that might mess with performance
 
 	void Start() 
 	{
@@ -29,6 +32,11 @@ public class importimage : MonoBehaviour, IPointerClickHandler
         int clickCount = eventData.clickCount;
 		if (clickCount == 2)
 		{
+            if(!texthidden)
+            {
+                tutorialText2.SetActive(false);
+                texthidden = true;
+            }
 			var paths = StandaloneFileBrowser.OpenFilePanel("Select image", "", "", false);
         	if (paths.Length > 0) {
             StartCoroutine(OutputRoutine(new System.Uri(paths[0]).AbsoluteUri));
