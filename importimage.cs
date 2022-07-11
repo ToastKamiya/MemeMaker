@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using SFB;
 using System;
 using System.IO;
+using TMPro;
 // using Unity Standalone File Browser by gkngkc on github
 // github.com/gkngkc/UnityStandaloneFileBrowser
  
@@ -15,9 +16,15 @@ public class importimage : MonoBehaviour, IPointerClickHandler
 {
  
     public GameObject mainImg;
+    public GameObject tutorialText2;
 
     public Text tutorialText;
-    public GameObject tutorialText2;
+
+    public TMP_Text TopTMP;
+    public TMP_Text BottomTMP;
+
+    public TMP_InputField RightIF;
+    public TMP_InputField LeftIF;
 
     public bool texthidden; // really don't need this but this way there are no errors being thrown that might mess with performance
 
@@ -73,5 +80,16 @@ public class importimage : MonoBehaviour, IPointerClickHandler
             yield return null;
         }
     }
+
+    public void SetTopTextFontSize()
+    {
+        TopTMP.fontSize = float.Parse(LeftIF.text);
+    }
+
+    public void SetBottomTextFontSize()
+    {
+        BottomTMP.fontSize = float.Parse(RightIF.text);
+    }
+
 
 }
