@@ -30,6 +30,8 @@ public class importimage : MonoBehaviour
     public bool texthidden; // really don't need this but this way there are no errors being thrown that might mess with performance
 
     public RectTransform RT;
+    public RectTransform RTTopText;
+    public RectTransform RTBottomText;
 
     float clicked = 0;
     float clicktime = 0;
@@ -161,9 +163,10 @@ public class importimage : MonoBehaviour
         Application.OpenURL("https://github.com/ToastKamiya/MemeMaker");
     }
 
-    public void OpenComplaints()
+    public void ResetText()
     {
-        Application.OpenURL("https://github.com/ToastKamiya/MemeMaker/issues");
+        RTTopText.anchoredPosition = new Vector2(0, -38);
+        RTBottomText.anchoredPosition = new Vector2(0, 54.1f);
     }
 
 }
